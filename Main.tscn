@@ -1,0 +1,822 @@
+[gd_scene load_steps=23 format=3 uid="uid://x6kho5jopaf6"]
+
+[ext_resource type="Script" path="res://master_script.gd" id="1_bha4h"]
+[ext_resource type="AudioStream" uid="uid://dl5ymogtxa8co" path="res://Audio/strike.ogg" id="2_maes0"]
+[ext_resource type="Texture2D" uid="uid://5e6qkaa33ww5" path="res://Assets/GameBase.png" id="3_hii3v"]
+[ext_resource type="AudioStream" uid="uid://gfk42ar46vww" path="res://Audio/correct.ogg" id="3_s5jss"]
+[ext_resource type="PackedScene" uid="uid://br7cmrnnje83c" path="res://Assets/AnswerPanel.glb" id="4_5dqte"]
+[ext_resource type="Texture2D" uid="uid://cl2vvqwahifx5" path="res://Assets/Background.png" id="4_xcyus"]
+[ext_resource type="Script" path="res://AnswerPanel.gd" id="5_0ctb1"]
+[ext_resource type="FontFile" uid="uid://ci3ytgv4qqgx1" path="res://Assets/LexendDeca-VariableFont_wght.ttf" id="6_0pbfp"]
+[ext_resource type="Texture2D" uid="uid://da00q6rr4484y" path="res://Assets/strike.png" id="6_7mc5g"]
+[ext_resource type="FontFile" uid="uid://c5cutmqstm5x0" path="res://Assets/Product Sans Bold.ttf" id="10_28l3y"]
+
+[sub_resource type="AudioStream" id="AudioStream_dvb4u"]
+
+[sub_resource type="Animation" id="Animation_vto5l"]
+resource_name = "FadeInQuestion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/GameBase/Question:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b2phi"]
+resource_name = "GameBaseToScoreboard"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/GameBase/Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/GameBase/TitleSkorGuru:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/GameBase/TitleSkorMurid:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/GameBase/SkorGuru:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/GameBase/SkorMurid:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/GameBase/TemporaryScoreLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/GameBase/3DView:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7d1o3"]
+resource_name = "Strike"
+length = 2.0
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/GameBase/Strike:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0166667, 0.216667, 0.45, 0.65, 0.866667, 0.933333, 1, 1.5, 1.51667),
+"transitions": PackedFloat32Array(1, 1, 2, 0.5, 2, 0.5, 2, 2, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1), Vector2(0.99, 0.99), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_raen1"]
+resource_name = "WallpaperToGameBase"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Wallpaper:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/GameBase:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ww426"]
+_data = {
+"FadeInQuestion": SubResource("Animation_vto5l"),
+"GameBaseToScoreboard": SubResource("Animation_b2phi"),
+"Strike": SubResource("Animation_7d1o3"),
+"WallpaperToGameBase": SubResource("Animation_raen1")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qtj8"]
+font = ExtResource("6_0pbfp")
+font_size = 144
+
+[sub_resource type="Environment" id="Environment_arp5i"]
+background_mode = 1
+background_color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tpm06"]
+viewport_path = NodePath("GameWindow/Control/GameBase/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mlrow"]
+font = ExtResource("10_28l3y")
+font_size = 108
+
+[sub_resource type="LabelSettings" id="LabelSettings_lvw27"]
+font = ExtResource("6_0pbfp")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_etlhk"]
+font = ExtResource("10_28l3y")
+font_size = 100
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bha4h")
+sound_strike = ExtResource("2_maes0")
+sound_correct = ExtResource("3_s5jss")
+
+[node name="BoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonShowWallpaper" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Show Wallpaper "
+
+[node name="ButtonShowGameBackground" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Show Game"
+
+[node name="Button3" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "abc"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonReveal1" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 1"
+
+[node name="ButtonReveal2" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 2"
+
+[node name="ButtonReveal3" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 3"
+
+[node name="ButtonReveal4" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 4"
+
+[node name="ButtonReveal5" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 5"
+
+[node name="ButtonReveal6" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 6"
+
+[node name="ButtonReveal7" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 7"
+
+[node name="ButtonReveal8" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reveal 8"
+
+[node name="ButtonResetAnswerPanels" type="Button" parent="BoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Reset Answer Panels"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonIncorrect" type="Button" parent="BoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Add Incorrect"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Set1" type="Button" parent="BoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Set 1"
+
+[node name="Set2" type="Button" parent="BoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Set 2"
+
+[node name="Set3" type="Button" parent="BoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Set 3"
+
+[node name="Set4" type="Button" parent="BoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Set 4"
+
+[node name="Set5" type="Button" parent="BoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Set 5"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ActivateTeamA" type="Button" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Activate Team A"
+
+[node name="ActivateTeamB" type="Button" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Activate Team B"
+
+[node name="SwapTeamPoints" type="Button" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Swap Team Points"
+
+[node name="DisablePointCollection" type="Button" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Disable Point Collection"
+
+[node name="AddPoints" type="Button" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Add Points to Scoreboard"
+
+[node name="CurrentPointsLabel" type="Label" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "[0, 0]"
+
+[node name="ActiveTeamLabel" type="Label" parent="BoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Active Team: A"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonShowGame" type="Button" parent="BoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Show Game"
+
+[node name="ButtonShowScoreboard" type="Button" parent="BoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Show Scoreboard"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="APointsOverrideTextBox" type="LineEdit" parent="BoxContainer/HBoxContainer7"]
+layout_mode = 2
+placeholder_text = "APoints"
+
+[node name="TeamAOverrideButton" type="Button" parent="BoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Override Team A"
+
+[node name="BPointsOverrideTextBox" type="LineEdit" parent="BoxContainer/HBoxContainer7"]
+layout_mode = 2
+placeholder_text = "BPoints"
+
+[node name="TeamBOverrideButton" type="Button" parent="BoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Override Team B"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ShowPertanyaanButton" type="Button" parent="BoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "Show Pertanyaan"
+
+[node name="HidePertanyaanButton" type="Button" parent="BoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "Hide Pertanyaan"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_dvb4u")
+
+[node name="GameWindow" type="Window" parent="."]
+mode = 3
+position = Vector2i(0, 36)
+size = Vector2i(2048, 1152)
+content_scale_size = Vector2i(2048, 1152)
+content_scale_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameWindow"]
+libraries = {
+"": SubResource("AnimationLibrary_ww426")
+}
+
+[node name="Control" type="Control" parent="GameWindow"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wallpaper" type="TextureRect" parent="GameWindow/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2008.0
+offset_bottom = 1112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xcyus")
+
+[node name="GameBase" type="TextureRect" parent="GameWindow/Control"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2008.0
+offset_bottom = 1112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hii3v")
+
+[node name="TemporaryScoreLabel" type="Label" parent="GameWindow/Control/GameBase"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -512.18
+offset_right = 43.5
+offset_bottom = -312.179
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_3qtj8")
+horizontal_alignment = 1
+
+[node name="SubViewport" type="SubViewport" parent="GameWindow/Control/GameBase"]
+transparent_bg = true
+size = Vector2i(1192, 664)
+
+[node name="Node3D" type="Node3D" parent="GameWindow/Control/GameBase/SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GameWindow/Control/GameBase/SubViewport/Node3D"]
+environment = SubResource("Environment_arp5i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Camera3D" type="Camera3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+projection = 1
+
+[node name="AnswerPanel1" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, -0.455, 0.377693, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "1"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel1"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel1"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Terlambat Mengumpulkan Tugas	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel2" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, -0.455, 0.12759, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "2"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel2"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel2"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel3" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, -0.455, -0.12676, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "3"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel3"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel3"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel4" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, -0.455, -0.384067, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "4"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel4"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel4"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel5" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0.455, 0.377693, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "5"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel5"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel5"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel6" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0.455, 0.12759, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "6"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel6"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel6"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel7" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0.455, -0.12676, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "7"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel7"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel7"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="AnswerPanel8" parent="GameWindow/Control/GameBase/SubViewport/Node3D" instance=ExtResource("4_5dqte")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0.455, -0.384067, 0)
+script = ExtResource("5_0ctb1")
+
+[node name="Number" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0232426, 0.207005)
+pixel_size = 0.002
+text = "8"
+font_size = 144
+outline_size = 0
+
+[node name="Points" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel8"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, 0.757422, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "11"
+font_size = 144
+outline_size = 0
+
+[node name="Question" type="Label3D" parent="GameWindow/Control/GameBase/SubViewport/Node3D/AnswerPanel8"]
+transform = Transform3D(1, 0, 0, 0, -0.834838, 0.550495, 0, -0.550495, -0.834838, -0.218992, 0.0977988, -0.191275)
+pixel_size = 0.002
+text = "Kirain bakal klasikal ternyata engga	"
+font = ExtResource("6_0pbfp")
+font_size = 66
+outline_size = 0
+autowrap_mode = 2
+width = 750.0
+
+[node name="3DView" type="Sprite2D" parent="GameWindow/Control/GameBase"]
+position = Vector2(1024, 700)
+texture = SubResource("ViewportTexture_tpm06")
+
+[node name="Strike" type="Sprite2D" parent="GameWindow/Control/GameBase"]
+position = Vector2(1024, 576)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_7mc5g")
+
+[node name="Title" type="Label" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 406.6
+offset_bottom = 606.601
+grow_horizontal = 2
+text = "Perolehan Skor"
+label_settings = SubResource("LabelSettings_mlrow")
+horizontal_alignment = 1
+
+[node name="TitleSkorGuru" type="Label" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -582.5
+offset_top = 650.0
+offset_right = -17.5
+offset_bottom = 952.0
+grow_horizontal = 2
+text = "Tim Guru"
+label_settings = SubResource("LabelSettings_lvw27")
+horizontal_alignment = 1
+
+[node name="TitleSkorMurid" type="Label" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.5
+offset_top = 650.0
+offset_right = 683.5
+offset_bottom = 952.0
+grow_horizontal = 2
+text = "Tim Murid"
+label_settings = SubResource("LabelSettings_lvw27")
+horizontal_alignment = 1
+
+[node name="SkorGuru" type="Label" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -582.5
+offset_top = 770.0
+offset_right = -17.5
+offset_bottom = 1072.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lvw27")
+horizontal_alignment = 1
+
+[node name="SkorMurid" type="Label" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.5
+offset_top = 770.0
+offset_right = 683.5
+offset_bottom = 1072.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lvw27")
+horizontal_alignment = 1
+
+[node name="Question" type="Control" parent="GameWindow/Control/GameBase"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameWindow/Control/GameBase/Question"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.819608)
+
+[node name="QuestionLabel" type="Label" parent="GameWindow/Control/GameBase/Question"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -276.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tempat nongki favorit guru di dalam lingkungan SMAK 1"
+label_settings = SubResource("LabelSettings_etlhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="BoxContainer/HBoxContainer/ButtonShowWallpaper" to="." method="_on_button_show_wallpaper_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/ButtonShowGameBackground" to="." method="_on_button_show_game_background_pressed"]
+[connection signal="button_down" from="BoxContainer/HBoxContainer/Button3" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal1" to="." method="_on_button_reveal_1_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal2" to="." method="_on_button_reveal_2_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal3" to="." method="_on_button_reveal_3_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal4" to="." method="_on_button_reveal_4_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal5" to="." method="_on_button_reveal_5_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal6" to="." method="_on_button_reveal_6_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal7" to="." method="_on_button_reveal_7_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonReveal8" to="." method="_on_button_reveal_8_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer2/ButtonResetAnswerPanels" to="." method="_on_button_reset_answer_panels_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer3/ButtonIncorrect" to="." method="_on_button_incorrect_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer4/Set1" to="." method="_on_set_1_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer4/Set2" to="." method="_on_set_2_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer4/Set3" to="." method="_on_set_3_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer4/Set4" to="." method="_on_set_4_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer4/Set5" to="." method="_on_set_5_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer5/ActivateTeamA" to="." method="_on_activate_team_a_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer5/ActivateTeamB" to="." method="_on_activate_team_b_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer5/SwapTeamPoints" to="." method="_on_swap_team_points_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer5/DisablePointCollection" to="." method="_on_disable_point_collection_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer5/AddPoints" to="." method="_on_add_points_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer6/ButtonShowGame" to="." method="_on_button_show_game_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer6/ButtonShowScoreboard" to="." method="_on_button_show_scoreboard_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer7/TeamAOverrideButton" to="." method="_on_team_a_override_button_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer7/TeamBOverrideButton" to="." method="_on_team_b_override_button_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer9/ShowPertanyaanButton" to="." method="_on_show_pertanyaan_button_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer9/HidePertanyaanButton" to="." method="_on_hide_pertanyaan_button_pressed"]
