@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://5e6qkaa33ww5" path="res://Assets/GameBase.png" id="3_hii3v"]
 [ext_resource type="AudioStream" uid="uid://gfk42ar46vww" path="res://Audio/correct.ogg" id="3_s5jss"]
 [ext_resource type="PackedScene" uid="uid://br7cmrnnje83c" path="res://Assets/AnswerPanel.glb" id="4_5dqte"]
-[ext_resource type="Texture2D" uid="uid://cl2vvqwahifx5" path="res://Assets/Background.png" id="4_xcyus"]
+[ext_resource type="Texture2D" uid="uid://dv37aaqqu37w2" path="res://Assets/wallpaper.png" id="4_7sbvl"]
 [ext_resource type="Script" path="res://AnswerPanel.gd" id="5_0ctb1"]
 [ext_resource type="FontFile" uid="uid://ci3ytgv4qqgx1" path="res://Assets/LexendDeca-VariableFont_wght.ttf" id="6_0pbfp"]
 [ext_resource type="Texture2D" uid="uid://da00q6rr4484y" path="res://Assets/strike.png" id="6_7mc5g"]
@@ -404,7 +404,7 @@ offset_right = 2008.0
 offset_bottom = 1112.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_xcyus")
+texture = ExtResource("4_7sbvl")
 
 [node name="GameBase" type="TextureRect" parent="GameWindow/Control"]
 modulate = Color(1, 1, 1, 0)

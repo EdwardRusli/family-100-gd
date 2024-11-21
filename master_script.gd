@@ -115,11 +115,11 @@ func _on_button_reset_answer_panels_pressed():
 
 
 var questions = [
-"Pelanggaran yang paling sering dilakukan murid SMAK 1",
-"Barang yang dibawa murid ke sekolah",
-"Tempat nongki favorit guru di dalam lingkungan SMAK 1	",
-"Waktu favorit guru dan murid SMAK 1",
-"Hal - hal yang membuat murid SMAK 1 paling takut",
+"Apa kegiatan yang sering dilakukan siswa/siswi sepulang sekolah",
+"Apa saat-saat yang paling ditunggu siswa SMAK 1",
+"Apa jajanan sekitar sekolah yang paling digemari siswa SMAK 1",
+"",
+"",
 ]
 
 
